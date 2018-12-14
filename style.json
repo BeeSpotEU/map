@@ -28,7 +28,12 @@
 	"beespot5": {
 		"type": "vector",
 		"url": "https://services.opengeo.nl/services/food4beeslevel5"
+	},
+	"beehives": {
+		"type": "vector",
+		"url": "https://services.opengeo.nl/services/beehives"
 	}
+
   },
   "sprite": "https://openmaptiles.github.io/klokantech-basic-gl-style/sprite",
   "glyphs": "https://services.opengeo.nl/zonekaart/fonts/{fontstack}/{range}.pbf",
@@ -1406,7 +1411,22 @@
 					"stops": [[15, 2], [20, 2]]
 				}
             }
+        },
+
+        {
+            "id": "beehives3",
+            "type": "circle",
+            "source": "beehives",
+            "source-layer": "beehives",
+            "paint": {
+		"circle-radius": {
+				"base": 10,
+				"stops": [[10, 4], [14, 8]]
+			},
+	     "circle-color": "#AA1111"
+	    }
         }
+
   ],
   "id": "ciwf4zbsv007y2pmt2rspc1dc"
 }
