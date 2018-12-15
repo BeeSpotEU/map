@@ -21,6 +21,21 @@
 		}; 
 	}
 
+	function lineColorByTime(time) {
+       		return  {
+				"property": "p" + ((Math.round(time) % 12) + 1) ,
+	                        "stops": [[0, "#030"], [40.0, "#090"]]
+            }
+	}
+
+	function lineWidthByTime(time) {
+       		return  {
+				"property": "p" + ((Math.round(time) % 12) + 1) ,
+	                        "stops": [[0, 1.0], [30.0, 4]]
+            }
+	}
+
+
 	var bounds = [
 		[2.992192, 50.74753], [7.230455, 54.01786]
 	];
@@ -38,7 +53,9 @@
       map.addControl(new mapboxgl.NavigationControl());
       map.on('load', function () {
 	      function animateMarker(timestamp) {
-		      map.setPaintProperty('zones-line', 'fill-color', fillColorByTime(timestamp / 1000));
+		      map.setPaintProperty('zones-line', 'fill-color', fillColorByTime(timestamp / 3000));
+		      map.setPaintProperty('zones-line3', 'line-color', lineColorByTime(timestamp / 3000));
+		      map.setPaintProperty('zones-line3', 'line-width', lineWidthByTime(timestamp / 3000));
 		      requestAnimationFrame(animateMarker);
 	      }
 	      animateMarker(0);
